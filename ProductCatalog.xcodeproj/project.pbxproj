@@ -78,6 +78,11 @@
 		A04F901A1DD27A2B00C120FA /* ProductCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				A04F90311DD27BD100C120FA /* Networking */,
+				A04F90301DD27BCC00C120FA /* Extensions */,
+				A04F902F1DD27BC500C120FA /* Views */,
+				A04F902E1DD27BBF00C120FA /* ViewControllers */,
+				A04F902D1DD27BB700C120FA /* Models */,
 				A04F901B1DD27A2B00C120FA /* AppDelegate.swift */,
 				A04F901D1DD27A2B00C120FA /* ViewController.swift */,
 				A04F901F1DD27A2B00C120FA /* Main.storyboard */,
@@ -86,6 +91,41 @@
 				A04F90271DD27A2B00C120FA /* Info.plist */,
 			);
 			path = ProductCatalog;
+			sourceTree = "<group>";
+		};
+		A04F902D1DD27BB700C120FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A04F902E1DD27BBF00C120FA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A04F902F1DD27BC500C120FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A04F90301DD27BCC00C120FA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		A04F90311DD27BD100C120FA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +419,7 @@
 				A04F902C1DD27A2B00C120FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
