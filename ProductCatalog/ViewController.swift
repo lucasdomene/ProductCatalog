@@ -8,23 +8,22 @@
 
 import UIKit
 import Alamofire
+import ObjectMapper
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        var products: [Product]?
         Alamofire.request(BestBuyAPI.ListProducts(page: 1, sort: .ASC)).responseJSON { response in
-            print(response)
+            if let json = response.result.value as? [String: Any] {
+                if let productsJSON = json["products"] as? [[String: Any]] {
+                    products = Mapper<Product>().mapArray(JSONArray: productsJSON)
+                }
+            }
         }
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

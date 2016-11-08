@@ -22,6 +22,6 @@ class Product: Mappable {
         name <- map["name"]
         brand <- map["manufacturer"]
         price <- map["salePrice"]
-        description <- map["description"]
+        description <- map["shortDescription"]
     }
 }
