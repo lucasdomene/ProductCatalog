@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        Alamofire.request(BestBuyAPI.ListProducts(page: 1, sort: .ASC)).responseJSON { response in
+            print(response)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

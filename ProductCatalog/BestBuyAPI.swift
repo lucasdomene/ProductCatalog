@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum BestBuyAPI: URLRequestConvertible {
-    static let baseURLString = "https://api.bestbuy.com/v1/"
+    static let baseURLString = "https://api.bestbuy.com/v1"
     static let apiKey = "bd6j9ut3parb7csptftw74b5"
 
     case ListProducts(page: Int, sort: ListProductsSort)

@@ -7,12 +7,21 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Product {
+class Product: Mappable {
     
     var name: String?
     var brand: String?
     var price: Double?
     var description: String?
     
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
+        name <- map["name"]
+        brand <- map["manufacturer"]
+        price <- map["salePrice"]
+        description <- map["description"]
+    }
 }
