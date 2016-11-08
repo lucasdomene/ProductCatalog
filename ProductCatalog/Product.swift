@@ -15,6 +15,8 @@ class Product: Mappable {
     var brand: String?
     var price: Double?
     var description: String?
+    var thumbnailImage: String?
+    var largeImage: String?
     
     required init?(map: Map) { }
     
@@ -23,5 +25,7 @@ class Product: Mappable {
         brand <- map["manufacturer"]
         price <- map["salePrice"]
         description <- map["shortDescription"]
+        thumbnailImage <- map["thumbnailImage"]
+        largeImage <- map["largeImage"]
     }
 }
