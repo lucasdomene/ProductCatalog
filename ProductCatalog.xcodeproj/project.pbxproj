@@ -13,6 +13,7 @@
 		A04F90231DD27A2B00C120FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A04F90221DD27A2B00C120FA /* Assets.xcassets */; };
 		A04F90261DD27A2B00C120FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A04F90241DD27A2B00C120FA /* LaunchScreen.storyboard */; };
 		A04F90331DD27BFA00C120FA /* BestBuyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F90321DD27BFA00C120FA /* BestBuyAPI.swift */; };
+		A04F90351DD27FA100C120FA /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F90341DD27FA100C120FA /* Product.swift */; };
 		E5FD57F4B2BC014F0A521755 /* Pods_ProductCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D0F70A9F572409459526CF /* Pods_ProductCatalog.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		A04F90251DD27A2B00C120FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A04F90271DD27A2B00C120FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A04F90321DD27BFA00C120FA /* BestBuyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestBuyAPI.swift; sourceTree = "<group>"; };
+		A04F90341DD27FA100C120FA /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B1F99D535F2C94616DACED37 /* Pods-ProductCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductCatalog.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProductCatalog/Pods-ProductCatalog.release.xcconfig"; sourceTree = "<group>"; };
 		D7D0F70A9F572409459526CF /* Pods_ProductCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProductCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,6 +100,7 @@
 		A04F902D1DD27BB700C120FA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A04F90341DD27FA100C120FA /* Product.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A04F901E1DD27A2B00C120FA /* ViewController.swift in Sources */,
+				A04F90351DD27FA100C120FA /* Product.swift in Sources */,
 				A04F90331DD27BFA00C120FA /* BestBuyAPI.swift in Sources */,
 				A04F901C1DD27A2B00C120FA /* AppDelegate.swift in Sources */,
 			);
