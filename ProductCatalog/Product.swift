@@ -19,13 +19,4 @@ class Product: Mappable {
     var largeImage: String?
     
     required init?(map: Map) { }
-    
-    func mapping(map: Map) {
-        name <- map["name"]
-        brand <- map["manufacturer"]
-        price <- map["salePrice"]
-        description <- map["shortDescription"]
-        thumbnailImage <- map["thumbnailImage"]
-        largeImage <- map["largeImage"]
-    }
 }
