@@ -12,16 +12,20 @@ class ProductsViewController: UICollectionViewController {
 
     var productStore: ProductStore!
     let productDataSource = ProductDataSource()
+    var currentPage = 1
+    var isLastPage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView?.dataSource = productDataSource
-        
-        productStore.fetchProducts(page: 1, sort: .ASC) { productResult in
+        self.fetchProducts()
+    }
+    
+    func fetchProducts(completion: (() -> ())? = nil) {
+        productStore.fetchProducts(page: currentPage, sort: .ASC) { productResult in
             switch productResult {
             case .Success(let products):
-                print(products)
                 OperationQueue.main.addOperation {
                     self.productDataSource.products.append(contentsOf: products)
                     self.collectionView?.reloadData()
@@ -30,9 +34,22 @@ class ProductsViewController: UICollectionViewController {
                 print(error)
                 // Treat Error
             }
+            completion?()
         }
     }
     
+    func loadNextPage() {
+        if !isLastPage {
+            currentPage += 1
+            fetchProducts()
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == productDataSource.products.count - 4 {
+            loadNextPage()
+        }
+    }
 
 }
 
