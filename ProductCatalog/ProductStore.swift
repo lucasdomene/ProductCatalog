@@ -25,20 +25,28 @@ class ProductStore {
     
     func fetchProducts(page: Int, sort: BestBuyAPI.ListProductsSort, completion: @escaping (ProductResult) -> Void) {
         Alamofire.request(BestBuyAPI.ListProducts(page: page, sort: sort)).responseJSON { response in
-            if let _ = response.result.error {
-                completion(.Failure(.RequestError))
-                return
+            completion(self.handleResponse(response: response))
+        }
+    }
+    
+    func searchProduct(searchTerm: String, page: Int, sort: BestBuyAPI.ListProductsSort, completion: @escaping (ProductResult) -> Void) {
+        Alamofire.request(BestBuyAPI.SearchProduct(searchTerm: searchTerm, page: page, sort: sort)).responseJSON { response in
+            completion(self.handleResponse(response: response))
+        }
+    }
+    
+    func handleResponse(response: DataResponse<Any>) -> ProductResult {
+        if let _ = response.result.error {
+            return .Failure(.RequestError)
+        }
+        
+        if let json = response.result.value as? [String : Any], let productsJSON = json["products"] as? [[String : Any]] {
+            guard let products = Mapper<Product>().mapArray(JSONArray: productsJSON) else {
+                return .Failure(.MappingError)
             }
-            
-            if let json = response.result.value as? [String : Any], let productsJSON = json["products"] as? [[String : Any]] {
-                guard let products = Mapper<Product>().mapArray(JSONArray: productsJSON) else {
-                    completion(.Failure(.MappingError))
-                    return
-                }
-                completion(.Success(products))
-            } else {
-                completion(.Failure(.JSONError))
-            }
+            return .Success(products)
+        } else {
+            return .Failure(.JSONError)
         }
     }
     

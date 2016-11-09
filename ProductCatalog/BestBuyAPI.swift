@@ -14,6 +14,7 @@ enum BestBuyAPI: URLRequestConvertible {
     static let apiKey = "bd6j9ut3parb7csptftw74b5"
 
     case ListProducts(page: Int, sort: ListProductsSort)
+    case SearchProduct(searchTerm: String, page: Int, sort: ListProductsSort)
     
     enum ListProductsSort {
         case DESC;
@@ -30,7 +31,7 @@ enum BestBuyAPI: URLRequestConvertible {
     
     var method: HTTPMethod {
         switch self {
-        case .ListProducts:
+        case .ListProducts, .SearchProduct:
             return .get
         }
     }
@@ -39,12 +40,14 @@ enum BestBuyAPI: URLRequestConvertible {
         switch self {
         case .ListProducts:
             return "/products"
+        case .SearchProduct(let searchTerm, _, _):
+            return "/products(search=\(searchTerm))"
         }
     }
     
     var parameters: [String : Any] {
         switch self {
-        case .ListProducts(let page, let sort):
+        case .ListProducts(let page, let sort), .SearchProduct(_, let page, let sort):
             return ["page" : page, "sort": "salePrice.\(sort.value)", "apiKey": BestBuyAPI.apiKey, "format": "json", "type": "game"]
         }
     }

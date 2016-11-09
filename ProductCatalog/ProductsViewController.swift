@@ -23,6 +23,17 @@ class ProductsViewController: UIViewController {
                 // Treat Error
             }
         }
+        
+        ProductStore().searchProduct(searchTerm: "xbox", page: 1, sort: .ASC) { (productResult) in
+            switch productResult {
+            case .Success(let products):
+                print(products)
+            // Set products to data source
+            case .Failure(let error):
+                print(error)
+                // Treat Error
+            }
+        }
     }
 
 }
