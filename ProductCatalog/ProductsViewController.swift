@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductsViewController: UIViewController {
+class ProductsViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

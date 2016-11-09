@@ -16,6 +16,7 @@
 		A04F90351DD27FA100C120FA /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F90341DD27FA100C120FA /* Product.swift */; };
 		A04F90391DD294D000C120FA /* Product+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F90381DD294D000C120FA /* Product+Mapping.swift */; };
 		A04F903B1DD2958D00C120FA /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F903A1DD2958D00C120FA /* ProductStore.swift */; };
+		A0DBA4441DD2A588008ACE85 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBA4431DD2A588008ACE85 /* ProductTableViewCell.swift */; };
 		E5FD57F4B2BC014F0A521755 /* Pods_ProductCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D0F70A9F572409459526CF /* Pods_ProductCatalog.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		A04F90341DD27FA100C120FA /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		A04F90381DD294D000C120FA /* Product+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Product+Mapping.swift"; sourceTree = "<group>"; };
 		A04F903A1DD2958D00C120FA /* ProductStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
+		A0DBA4431DD2A588008ACE85 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		B1F99D535F2C94616DACED37 /* Pods-ProductCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductCatalog.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProductCatalog/Pods-ProductCatalog.release.xcconfig"; sourceTree = "<group>"; };
 		D7D0F70A9F572409459526CF /* Pods_ProductCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProductCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 		A04F902F1DD27BC500C120FA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A0DBA4431DD2A588008ACE85 /* ProductTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			files = (
 				A04F901E1DD27A2B00C120FA /* ProductsViewController.swift in Sources */,
 				A04F90351DD27FA100C120FA /* Product.swift in Sources */,
+				A0DBA4441DD2A588008ACE85 /* ProductTableViewCell.swift in Sources */,
 				A04F90331DD27BFA00C120FA /* BestBuyAPI.swift in Sources */,
 				A04F901C1DD27A2B00C120FA /* AppDelegate.swift in Sources */,
 				A04F90391DD294D000C120FA /* Product+Mapping.swift in Sources */,
