@@ -18,8 +18,8 @@ class ProductCell: UICollectionViewCell {
  
     func fill(product: Product) {
         clean()
-        nameLabel.text = product.name
-        brandLabel.text = product.brand
+        nameLabel.text = product.name ?? "Unknown"
+        brandLabel.text = product.brand ?? "Unknown"
         priceLabel.text = product.price != nil ? "$ \(product.price!)" : "No value"
     }
     
