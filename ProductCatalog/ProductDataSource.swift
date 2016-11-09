@@ -22,6 +22,8 @@ class ProductDataSource: NSObject, UICollectionViewDataSource {
         
         let product = products[indexPath.row]
         
+        cell.fill(product: product)
+        
         return cell
     }
     

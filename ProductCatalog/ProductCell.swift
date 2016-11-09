@@ -20,7 +20,7 @@ class ProductCell: UICollectionViewCell {
         clean()
         nameLabel.text = product.name
         brandLabel.text = product.brand
-        priceLabel.text = "$ \(product.price)"
+        priceLabel.text = product.price != nil ? "$ \(product.price!)" : "No value"
     }
     
     func updateWithImage(image: UIImage?) {
