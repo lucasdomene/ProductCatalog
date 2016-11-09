@@ -10,10 +10,12 @@ import UIKit
 
 class ProductsViewController: UICollectionViewController {
 
+    var productStore: ProductStore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ProductStore().fetchProducts(page: 1, sort: .ASC) { productResult in
+        productStore.fetchProducts(page: 1, sort: .ASC) { productResult in
             switch productResult {
             case .Success(let products):
                 print(products)
@@ -24,7 +26,7 @@ class ProductsViewController: UICollectionViewController {
             }
         }
         
-        ProductStore().searchProduct(searchTerm: "xbox", page: 1, sort: .ASC) { (productResult) in
+        productStore.searchProduct(searchTerm: "xbox", page: 1, sort: .ASC) { (productResult) in
             switch productResult {
             case .Success(let products):
                 print(products)
@@ -35,6 +37,8 @@ class ProductsViewController: UICollectionViewController {
             }
         }
     }
+    
+    
 
 }
 
