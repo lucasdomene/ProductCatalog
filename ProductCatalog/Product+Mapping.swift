@@ -17,7 +17,7 @@ extension Product {
         brand <- map["manufacturer"]
         price <- map["salePrice"]
         description <- map["shortDescription"]
-        thumbnailImage <- map["thumbnailImage"]
+        thumbnailImage <- map["mediumImage"]
         largeImage <- map["largeImage"]
     }
     

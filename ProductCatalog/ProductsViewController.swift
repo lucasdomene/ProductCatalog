@@ -55,15 +55,26 @@ class ProductsViewController: UICollectionViewController {
         var imageURL: URL?
         do {
             try imageURL = product.thumbnailImage?.asURL()
+            
+            guard imageURL != nil else {
+                (cell as! ProductCell).productImageView.image = UIImage(named: "no_image")
+                (cell as! ProductCell).stopSpinner()
+                return
+            }
+
             ImageDownloader.default.downloadImage(with: imageURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
-                let productIndex = self.productDataSource.products.index(of: product)
+                if let productRow = self.productDataSource.products.index(of: product) {
+                    let productIndexPath = IndexPath(row: productRow, section: 0)
+                    if let cell = self.collectionView?.cellForItem(at: productIndexPath) as? ProductCell {
+                        cell.productImageView.image = image ?? UIImage(named: "no_image")
+                        cell.stopSpinner()
+                    }
+                }
             }
         } catch {
-            //Treat Error
+            (cell as! ProductCell).productImageView.image = UIImage(named: "no_image")
+            (cell as! ProductCell).stopSpinner()
         }
-        
-        
-        (cell as? ProductCell)?.productImageView.kf.setImage(with: imageURL)
     }
 
 }

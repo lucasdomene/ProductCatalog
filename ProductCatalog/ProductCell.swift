@@ -23,30 +23,28 @@ class ProductCell: UICollectionViewCell {
         priceLabel.text = product.price != nil ? "$ \(product.price!)" : "No value"
     }
     
-    func updateWithImage(image: UIImage?) {
-        if let imageToDisplay = image {
-            spinner.stopAnimating()
-            productImageView.image = imageToDisplay
-        } else {
-            spinner.startAnimating()
-            productImageView.image = nil
-        }
+    func startSpinner() {
+        spinner.startAnimating()
+    }
+    
+    func stopSpinner() {
+        spinner.stopAnimating()
     }
     
     func clean() {
         nameLabel.text = "Untitled"
         brandLabel.text = "No brand"
         priceLabel.text = "No value"
-        updateWithImage(image: nil)
+        productImageView.image = nil
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        updateWithImage(image: nil)
+        startSpinner()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        updateWithImage(image: nil)
+        startSpinner()
     }
 }
