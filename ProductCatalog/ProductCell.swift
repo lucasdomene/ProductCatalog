@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductCollectionViewCell: UICollectionViewCell {
+class ProductCell: UICollectionViewCell {
 
     @IBOutlet var productImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
