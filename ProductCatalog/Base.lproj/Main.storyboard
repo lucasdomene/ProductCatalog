@@ -30,6 +30,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mZi-Zm-abe">
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="1O3-Jy-JxO"/>
                                                 <constraint firstAttribute="height" constant="70" id="aTt-va-0yN"/>
@@ -50,6 +51,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Cz8-ev-an8"/>
                                     </subviews>
                                 </view>
                                 <constraints>
@@ -57,8 +59,10 @@
                                     <constraint firstItem="mZi-Zm-abe" firstAttribute="centerX" secondItem="Nyi-Fe-cEE" secondAttribute="centerX" id="599-EU-EG7"/>
                                     <constraint firstAttribute="trailing" secondItem="TUG-5Z-AbK" secondAttribute="trailing" constant="39" id="HW5-5f-i8a"/>
                                     <constraint firstItem="j0o-VJ-hyk" firstAttribute="leading" secondItem="Nyi-Fe-cEE" secondAttribute="leadingMargin" constant="31" id="Htw-tV-cQU"/>
+                                    <constraint firstItem="Cz8-ev-an8" firstAttribute="top" secondItem="mZi-Zm-abe" secondAttribute="bottom" constant="-44" id="ITH-n1-6eU"/>
                                     <constraint firstItem="mZi-Zm-abe" firstAttribute="top" secondItem="Nyi-Fe-cEE" secondAttribute="topMargin" id="KFg-PO-Cgv"/>
                                     <constraint firstItem="TUG-5Z-AbK" firstAttribute="top" secondItem="j0o-VJ-hyk" secondAttribute="bottom" constant="2.5" id="Ptz-qv-iHb"/>
+                                    <constraint firstItem="Cz8-ev-an8" firstAttribute="leading" secondItem="mZi-Zm-abe" secondAttribute="trailing" constant="-45" id="Vzk-SO-5gV"/>
                                     <constraint firstItem="TUG-5Z-AbK" firstAttribute="leading" secondItem="Nyi-Fe-cEE" secondAttribute="leading" constant="39" id="ZFe-PV-hGO"/>
                                     <constraint firstItem="Ogh-MB-Ndd" firstAttribute="leading" secondItem="Nyi-Fe-cEE" secondAttribute="leadingMargin" constant="31" id="cOR-6b-tjG"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="j0o-VJ-hyk" secondAttribute="trailing" constant="31" id="fgi-Xc-D7R"/>
@@ -71,6 +75,7 @@
                                     <outlet property="priceLabel" destination="TUG-5Z-AbK" id="Qmy-2h-bin"/>
                                     <outlet property="productImage" destination="mZi-Zm-abe" id="SnM-G0-lpa"/>
                                     <outlet property="productImageView" destination="mZi-Zm-abe" id="LRY-8f-mgr"/>
+                                    <outlet property="spinner" destination="Cz8-ev-an8" id="eSX-sZ-FXM"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
