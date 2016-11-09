@@ -20,6 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let productsViewController = rootViewController.topViewController as! ProductsViewController
         productsViewController.productStore = ProductStore()
         
+        // NavigationBar Appearance
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 1, green: 222.0/255.0, blue: 20.0/255.0, alpha: 1.0)
+        
+        if let barFont = UIFont(name: "Avenir-Light", size: 24.0) {
+            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: barFont]
+        }
+        
         return true
     }
 

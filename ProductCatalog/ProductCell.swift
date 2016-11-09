@@ -41,8 +41,6 @@ class ProductCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         startSpinner()
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.blue.cgColor
     }
     
     override func prepareForReuse() {

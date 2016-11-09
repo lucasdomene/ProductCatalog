@@ -24,6 +24,9 @@ class ProductDataSource: NSObject, UICollectionViewDataSource {
         
         cell.fill(product: product)
         
+        cell.layer.borderWidth = 0.5
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+        
         return cell
     }
     
