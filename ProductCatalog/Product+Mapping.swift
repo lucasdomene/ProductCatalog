@@ -12,6 +12,7 @@ import ObjectMapper
 extension Product {
     
     func mapping(map: Map) {
+        id <- map["productId"]
         name <- map["name"]
         brand <- map["manufacturer"]
         price <- map["salePrice"]

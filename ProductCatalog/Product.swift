@@ -9,8 +9,9 @@
 import Foundation
 import ObjectMapper
 
-class Product: Mappable {
+class Product: Mappable, Equatable {
     
+    var id: Int?
     var name: String?
     var brand: String?
     var price: Double?
@@ -19,4 +20,8 @@ class Product: Mappable {
     var largeImage: String?
     
     required init?(map: Map) { }
+    
+    public static func ==(lhs: Product, rhs: Product) -> Bool {
+        return lhs.id == rhs.id
+    }
 }

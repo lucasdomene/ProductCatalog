@@ -7,5 +7,6 @@ target 'ProductCatalog' do
   # Pods for ProductCatalog
   pod 'Alamofire', '~> 4.0'
   pod 'ObjectMapper', '~> 2.2'
+  pod 'Kingfisher', '~> 3.0'
 
 end

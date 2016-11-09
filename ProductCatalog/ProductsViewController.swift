@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProductsViewController: UICollectionViewController {
 
@@ -49,6 +50,20 @@ class ProductsViewController: UICollectionViewController {
         if indexPath.row == productDataSource.products.count - 4 {
             loadNextPage()
         }
+        
+        let product = productDataSource.products[indexPath.row]
+        var imageURL: URL?
+        do {
+            try imageURL = product.thumbnailImage?.asURL()
+            ImageDownloader.default.downloadImage(with: imageURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
+                let productIndex = self.productDataSource.products.index(of: product)
+            }
+        } catch {
+            //Treat Error
+        }
+        
+        
+        (cell as? ProductCell)?.productImageView.kf.setImage(with: imageURL)
     }
 
 }
