@@ -19,6 +19,7 @@
 		A0DBA4441DD2A588008ACE85 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBA4431DD2A588008ACE85 /* ProductCell.swift */; };
 		A0DBA4471DD2A7D2008ACE85 /* ProductDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBA4461DD2A7D2008ACE85 /* ProductDataSource.swift */; };
 		A0DBA4491DD40657008ACE85 /* ProductHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBA4481DD40657008ACE85 /* ProductHeaderView.swift */; };
+		A0DBA44B1DD4B6F0008ACE85 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBA44A1DD4B6F0008ACE85 /* ProductDetailsViewController.swift */; };
 		E5FD57F4B2BC014F0A521755 /* Pods_ProductCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D0F70A9F572409459526CF /* Pods_ProductCatalog.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		A0DBA4431DD2A588008ACE85 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		A0DBA4461DD2A7D2008ACE85 /* ProductDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDataSource.swift; sourceTree = "<group>"; };
 		A0DBA4481DD40657008ACE85 /* ProductHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductHeaderView.swift; sourceTree = "<group>"; };
+		A0DBA44A1DD4B6F0008ACE85 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		B1F99D535F2C94616DACED37 /* Pods-ProductCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductCatalog.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProductCatalog/Pods-ProductCatalog.release.xcconfig"; sourceTree = "<group>"; };
 		D7D0F70A9F572409459526CF /* Pods_ProductCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProductCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				A04F901D1DD27A2B00C120FA /* ProductsViewController.swift */,
+				A0DBA44A1DD4B6F0008ACE85 /* ProductDetailsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				A0DBA4491DD40657008ACE85 /* ProductHeaderView.swift in Sources */,
 				A04F901E1DD27A2B00C120FA /* ProductsViewController.swift in Sources */,
 				A04F90351DD27FA100C120FA /* Product.swift in Sources */,
+				A0DBA44B1DD4B6F0008ACE85 /* ProductDetailsViewController.swift in Sources */,
 				A0DBA4441DD2A588008ACE85 /* ProductCell.swift in Sources */,
 				A04F90331DD27BFA00C120FA /* BestBuyAPI.swift in Sources */,
 				A04F901C1DD27A2B00C120FA /* AppDelegate.swift in Sources */,
