@@ -45,6 +45,10 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         
         createRefreshControl()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProductsViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
         self.fetchProducts()
     }
     
@@ -125,6 +129,10 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         productDataSource.products = [Product]()
         currentPage = 1
         isLastPage = false
+    }
+    
+    func dismissKeyboard() {
+        (collectionView?.supplementaryView(forElementKind: "UICollectionElementKindSectionHeader", at: IndexPath(row: 0, section: 0)) as? ProductHeaderView)?.searchBar.resignFirstResponder()
     }
     
     // MARK: - UICollectionViewDelegate
