@@ -29,6 +29,8 @@ class ProductDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(ProductDetailsViewController.share))
+        
         if let product = self.product {
             fill(product: product)
             title = product.name
@@ -42,7 +44,40 @@ class ProductDetailsViewController: UIViewController {
         brandLabel.text = product.brand ?? "Unknown"
         priceLabel.text = product.price != nil ? "$ \(product.price!)" : "No value"
         descriptionLabel.text = product.description ?? "No description"
-        imageView.kf.setImage(with: try! product.largeImage?.asURL())
+        
+        getImage { image in
+            OperationQueue.main.addOperation {
+                self.imageView.image = image
+            }
+        }
+    }
+    
+    func getImage(completion: @escaping (UIImage) -> ()) {
+        var imageURL: URL?
+        do {
+            try imageURL = product?.largeImage?.asURL()
+            
+            guard imageURL != nil else {
+                completion(UIImage(named: "no_image")!)
+                return
+            }
+            
+            ImageDownloader.default.downloadImage(with: imageURL!) { (image, _, _, _) in
+                completion(image ?? UIImage(named: "no_image")!)
+            }
+        } catch {
+            completion(UIImage(named: "no_image")!)
+        }
+    }
+    
+    // MARK: - Share
+    
+    func share() {
+        if let imageToShare = imageView.image, let productName = nameLabel.text, let productPrice = priceLabel.text {
+            let message = "\(productName) for only \(productPrice)!"
+            let activityController = UIActivityViewController(activityItems: [message, imageToShare], applicationActivities: nil)
+            present(activityController, animated: true, completion: nil)
+        }
     }
     
 }
