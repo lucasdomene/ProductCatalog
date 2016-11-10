@@ -9,12 +9,13 @@
 import UIKit
 import Kingfisher
 
-class ProductsViewController: UICollectionViewController {
+class ProductsViewController: UICollectionViewController, OrderingSegmentedControlDelegate {
 
     var productStore: ProductStore!
     let productDataSource = ProductDataSource()
     var currentPage = 1
     var isLastPage = false
+    var sortType = BestBuyAPI.ListProductsSort.DESC
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class ProductsViewController: UICollectionViewController {
     }
     
     func fetchProducts(completion: (() -> ())? = nil) {
-        productStore.fetchProducts(page: currentPage, sort: .ASC) { productResult in
+        productStore.fetchProducts(page: currentPage, sort: sortType) { productResult in
             switch productResult {
             case .Success(let products):
                 OperationQueue.main.addOperation {
@@ -45,6 +46,23 @@ class ProductsViewController: UICollectionViewController {
             currentPage += 1
             fetchProducts()
         }
+    }
+    
+    func orderingChangedTo(sortType: BestBuyAPI.ListProductsSort) {
+        if self.sortType == sortType {
+            return
+        }
+        
+        self.sortType = sortType
+        
+        resetDataSource()
+        fetchProducts()
+    }
+    
+    func resetDataSource() {
+        productDataSource.products = [Product]()
+        currentPage = 1
+        isLastPage = false
     }
     
     // MARK: - UICollectionViewDelegate
