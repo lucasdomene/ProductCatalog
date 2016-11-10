@@ -11,19 +11,19 @@
         <scene sceneID="KR8-Xp-EJs">
             <objects>
                 <collectionViewController id="JIp-AI-YDs" customClass="ProductsViewController" customModule="ProductCatalog" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="3FB-Np-aQA">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3FB-Np-aQA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="aU1-Fw-oxz">
                             <size key="itemSize" width="150" height="161"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="73"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="Nyi-Fe-cEE" customClass="ProductCell" customModule="ProductCatalog" customModuleProvider="target">
-                                <rect key="frame" x="5" y="0.0" width="150" height="161"/>
+                                <rect key="frame" x="5" y="78" width="150" height="161"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="161"/>
@@ -79,6 +79,40 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductHeader" id="eyo-ct-B3H" customClass="ProductHeaderView" customModule="ProductCatalog" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O9B-pb-aiS">
+                                    <color key="backgroundColor" red="1" green="0.87058823529999996" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <segments>
+                                        <segment title="Higher Price"/>
+                                        <segment title="Lower Price"/>
+                                    </segments>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <action selector="orderingChanged:" destination="eyo-ct-B3H" eventType="valueChanged" id="gMF-7I-0EK"/>
+                                    </connections>
+                                </segmentedControl>
+                                <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search products..." translatesAutoresizingMaskIntoConstraints="NO" id="IxF-3m-Xnh">
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="IxF-3m-Xnh" firstAttribute="leading" secondItem="eyo-ct-B3H" secondAttribute="leading" id="2EY-8p-a3U"/>
+                                <constraint firstAttribute="trailing" secondItem="IxF-3m-Xnh" secondAttribute="trailing" id="4en-4Y-VQr"/>
+                                <constraint firstAttribute="trailing" secondItem="O9B-pb-aiS" secondAttribute="trailing" id="CEk-Xp-xy8"/>
+                                <constraint firstItem="O9B-pb-aiS" firstAttribute="top" secondItem="eyo-ct-B3H" secondAttribute="top" id="Ik8-Z3-RFZ"/>
+                                <constraint firstItem="O9B-pb-aiS" firstAttribute="centerX" secondItem="eyo-ct-B3H" secondAttribute="centerX" id="P8l-zg-iib"/>
+                                <constraint firstAttribute="bottom" secondItem="IxF-3m-Xnh" secondAttribute="bottom" id="ZcO-PC-E0Z"/>
+                                <constraint firstItem="O9B-pb-aiS" firstAttribute="leading" secondItem="eyo-ct-B3H" secondAttribute="leading" id="ZoP-Ga-XZW"/>
+                                <constraint firstItem="IxF-3m-Xnh" firstAttribute="centerX" secondItem="eyo-ct-B3H" secondAttribute="centerX" id="nw5-Gl-SYv"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="orderingSegmentedControl" destination="O9B-pb-aiS" id="1JA-cA-7Yb"/>
+                                <outlet property="searchBar" destination="IxF-3m-Xnh" id="Qys-lf-AE3"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="delegate" destination="JIp-AI-YDs" id="XFj-Zx-yfp"/>
                         </connections>

@@ -20,6 +20,7 @@ class ProductsViewController: UICollectionViewController {
         super.viewDidLoad()
         
         collectionView?.dataSource = productDataSource
+        
         self.fetchProducts()
     }
     
