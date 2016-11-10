@@ -35,6 +35,8 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     var isRefreshing = false
     
+    var currentCellSize: CGSize?
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -194,12 +196,17 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            if UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown {
+            switch UIDevice.current.orientation {
+            case .portrait:
                 let width = (self.view.bounds.size.width - 3 * 5) / 2
-                return CGSize(width: width, height: width * 1.2)
-            } else {
+                currentCellSize = CGSize(width: width, height: width * 1.1)
+                return currentCellSize!
+            case .landscapeLeft, .landscapeRight:
                 let width = (self.view.bounds.size.width - 5 * 5) / 4
-                return CGSize(width: width, height: width * 1.2)
+                currentCellSize = CGSize(width: width, height: width * 1.1)
+                return currentCellSize!
+            default:
+                return currentCellSize ?? CGSize(width: 150, height: 165)
             }
         } else {
             return CGSize(width: 180, height: 190)
@@ -316,7 +323,12 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     /// Reload the collectionView for layout adjustments.
     func didRotateDevice() {
-        self.collectionView?.reloadData()
+        switch UIDevice.current.orientation {
+        case .faceDown, .faceUp, .portraitUpsideDown, .unknown:
+            return
+        case .landscapeLeft, .landscapeRight, .portrait:
+            self.collectionView?.reloadData()
+        }
     }
     
 
