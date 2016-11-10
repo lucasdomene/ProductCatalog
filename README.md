@@ -14,3 +14,7 @@ It's possible to order the products by higher price to lower or the opposite way
 
 Unit tests executed using XCTest framework.
 
+### How to execute
+
+Using Swift 3.0
+Use XCode 8.0+ and run 'pod install'.
