@@ -32,6 +32,8 @@ class ProductCell: UICollectionViewCell {
     
     // MARK: - Helper Methods
     
+    /// Fill labels content with a given product data
+    /// - parameter product: A instance of Product
     func fill(product: Product) {
         clean()
         nameLabel.text = product.name ?? "Unknown"
@@ -39,14 +41,17 @@ class ProductCell: UICollectionViewCell {
         priceLabel.text = product.price != nil ? "$ \(product.price!)" : "No value"
     }
     
+    /// Starts the UIActivityIndicator on cell
     func startSpinner() {
         spinner.startAnimating()
     }
     
+    /// Stops the UIActivityIndicator on cell
     func stopSpinner() {
         spinner.stopAnimating()
     }
     
+    /// Clean cell content
     func clean() {
         nameLabel.text = "Untitled"
         brandLabel.text = "No brand"

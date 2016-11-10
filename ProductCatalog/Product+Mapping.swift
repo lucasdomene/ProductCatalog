@@ -11,6 +11,7 @@ import ObjectMapper
 
 extension Product {
     
+    /// Map each attribute of a product
     func mapping(map: Map) {
         id <- map["productId"]
         name <- map["name"]

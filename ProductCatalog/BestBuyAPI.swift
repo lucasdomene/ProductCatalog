@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 
+/// API for listing and searching products of BestBuy
 enum BestBuyAPI: URLRequestConvertible {
     
     // MARK: - Attributes
@@ -16,6 +17,7 @@ enum BestBuyAPI: URLRequestConvertible {
     static let baseURLString = "https://api.bestbuy.com/v1"
     static let apiKey = "bd6j9ut3parb7csptftw74b5"
 
+    /// Available sorting options
     enum ListProductsSort {
         case DESC;
         case ASC;
@@ -29,6 +31,7 @@ enum BestBuyAPI: URLRequestConvertible {
         }
     }
     
+    /// Http method according to route
     var method: HTTPMethod {
         switch self {
         case .ListProducts, .SearchProduct:
@@ -36,6 +39,7 @@ enum BestBuyAPI: URLRequestConvertible {
         }
     }
     
+    /// Path according to route
     var path: String {
         switch self {
         case .ListProducts:
@@ -45,6 +49,7 @@ enum BestBuyAPI: URLRequestConvertible {
         }
     }
     
+    /// Parameters according to route
     var parameters: [String : Any] {
         switch self {
         case .ListProducts(let page, let sort), .SearchProduct(_, let page, let sort):

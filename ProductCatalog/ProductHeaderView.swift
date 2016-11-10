@@ -25,6 +25,7 @@ class ProductHeaderView: UICollectionReusableView {
     
     // MARK: - @IBActions
     
+    /// OrderingSegmentedControlDelegate method to notify when orderingSegmentedControl changes value
     @IBAction func orderingChanged(_ sender: UISegmentedControl) {
         delegate?.orderingChangedTo(sortType: sender.selectedSegmentIndex == 0 ? .DESC : .ASC)
     }

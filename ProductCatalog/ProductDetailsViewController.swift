@@ -39,6 +39,8 @@ class ProductDetailsViewController: UIViewController {
     
     // MARK: - Helper Methods
     
+    /// Fill @IBOutlets with selected product data
+    /// - parameter product: The selected product
     func fill(product: Product) {
         nameLabel.text = product.name ?? "Unknown"
         brandLabel.text = product.brand ?? "Unknown"
@@ -52,6 +54,8 @@ class ProductDetailsViewController: UIViewController {
         }
     }
     
+    /// Download the large image of the product. If it fails, send the default it back.
+    /// - parameter completion: The closure to send data back.
     func getImage(completion: @escaping (UIImage) -> ()) {
         var imageURL: URL?
         do {
@@ -72,6 +76,7 @@ class ProductDetailsViewController: UIViewController {
     
     // MARK: - Share
     
+    /// Share content using UIActivityIndicator
     func share() {
         if let imageToShare = imageView.image, let productName = nameLabel.text, let productPrice = priceLabel.text {
             let message = "\(productName) for only \(productPrice)!"
@@ -82,6 +87,7 @@ class ProductDetailsViewController: UIViewController {
     
     // MARK: - @IBActions
     
+    /// Handle image tap
     @IBAction func zoomPressed(_ sender: AnyObject) {
         if let image = imageView.image {
             performSegue(withIdentifier: "showZoomView", sender: image)

@@ -54,6 +54,8 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     // MARK: - Data Fetchers
     
+    /// Fetch products
+    /// - parameter completion: Completion closure used to inform the end of fetching data. Optional.
     func fetchProducts(completion: (() -> ())? = nil) {
         startLoading()
         productStore.fetchProducts(page: currentPage, sort: sortType) { productResult in
@@ -78,6 +80,9 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         }
     }
     
+    /// Search products
+    /// - parameter searchTerm: The search term to filter the API results
+    /// - parameter completion: Completion closure used to inform the end of fetching data. Optional.
     func searchProducts(searchTerm: String, completion: (() -> ())? = nil) {
         startLoading()
         productStore.searchProduct(searchTerm: searchTerm, page: currentPage, sort: sortType) { productResult in
@@ -103,6 +108,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     // MARK: - Paging
     
+    /// Load next page of products.
     func loadNextPage() {
         if !isLastPage {
             currentPage += 1
@@ -112,6 +118,8 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     // MARK: - Ordering
     
+    /// Change the sort order.
+    /// - parameter sortType: the new sort option (price ASC or DESC)
     func orderingChangedTo(sortType: BestBuyAPI.ListProductsSort) {
         if self.sortType == sortType {
             return
@@ -125,6 +133,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     // MARK: - Searching
     
+    /// Clean search field and search results
     @IBAction func clearSearch(_ sender: UIBarButtonItem) {
         isSearchActive = false
         resetDataSource()
@@ -136,12 +145,14 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     // MARK: - Helper Methods
     
+    /// Set data source and helper attributes to initial values
     func resetDataSource() {
         productDataSource.products = [Product]()
         currentPage = 1
         isLastPage = false
     }
     
+    /// Remove keyboard from screen
     func dismissKeyboard() {
         (collectionView?.supplementaryView(forElementKind: "UICollectionElementKindSectionHeader", at: IndexPath(row: 0, section: 0)) as? ProductHeaderView)?.searchBar.resignFirstResponder()
     }
@@ -173,7 +184,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     }
     
     // MARK: - SearchBarDelegate
-    
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchTerm = searchBar.text, !searchTerm.isEmpty {
             isSearchActive = true
@@ -186,6 +197,9 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     // MARK: - Image Handler
     
+    /// Download and set the image to cell. If an error occurs, set the default image instead.
+    /// - parameter cell: The ProductCell to set the image to
+    /// - parameter indexPath: The indexPath of the cell.
     func setImage(atCell cell: ProductCell, forItemAt indexPath: IndexPath) {
         if let product = productDataSource.product(indexPath: indexPath) {
             var imageURL: URL?
@@ -214,6 +228,8 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         }
     }
     
+    /// Set the default image to the cell
+    /// - parameter cell: The ProductCell to set the image to
     func setDefaultImage(cell: ProductCell) {
         cell.productImageView.image = UIImage(named: "no_image")
         cell.stopSpinner()
@@ -221,12 +237,14 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     // MARK: - Pull to Refresh
     
+    /// Create UIRefreshControl and add to the view
     func createRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(ProductsViewController.refreshProducts(sender:)), for: .valueChanged)
         collectionView?.addSubview(refreshControl)
     }
     
+    /// Refresh content
     func refreshProducts(sender: UIRefreshControl) {
         resetDataSource()
         isRefreshing = true
@@ -246,12 +264,14 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     // MARK: - Loading
     
+    /// Starts the UIActivityIndicator on view
     func startLoading() {
         if !isRefreshing {
             spinner.startAnimating()
         }
     }
     
+    /// Stops the UIActivityIndicator on view
     func stopLoading() {
         if !isRefreshing {
             spinner.stopAnimating()

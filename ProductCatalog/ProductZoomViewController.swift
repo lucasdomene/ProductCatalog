@@ -40,6 +40,7 @@ class ProductZoomViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - @IBActions
     
+    /// Dismiss viewController
     @IBAction func closeView(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
     }
