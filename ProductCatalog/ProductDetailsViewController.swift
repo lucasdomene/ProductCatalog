@@ -31,6 +31,7 @@ class ProductDetailsViewController: UIViewController {
         
         if let product = self.product {
             fill(product: product)
+            title = product.name
         }
     }
     

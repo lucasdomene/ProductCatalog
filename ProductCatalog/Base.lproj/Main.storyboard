@@ -12,7 +12,7 @@
         <scene sceneID="KR8-Xp-EJs">
             <objects>
                 <collectionViewController id="JIp-AI-YDs" customClass="ProductsViewController" customModule="ProductCatalog" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3FB-Np-aQA">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="3FB-Np-aQA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -315,9 +315,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1xv-IR-E4M" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cbD-53-rSK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cbD-53-rSK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
