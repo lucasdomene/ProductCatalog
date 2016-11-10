@@ -200,6 +200,15 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if UIDevice.current.userInterfaceIdiom == .phone {
             switch UIDevice.current.orientation {
+            case .faceUp:
+                var width: CGFloat!
+                if self.view.frame.size.width < self.view.frame.size.height {
+                    width = (self.view.bounds.size.width - 3 * 5) / 2
+                } else {
+                    width = (self.view.bounds.size.width - 5 * 5) / 4
+                }
+                currentCellSize = CGSize(width: width, height: width * 1.1)
+                return currentCellSize!
             case .portrait:
                 let width = (self.view.bounds.size.width - 3 * 5) / 2
                 currentCellSize = CGSize(width: width, height: width * 1.1)
