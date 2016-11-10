@@ -308,6 +308,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     // MARK: - Loading
     
+    /// Create and configure the UIActivityIndicatorView.
     func configureSpinner() {
         spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         spinner.color = UIColor(red: 1, green: 222.0/255.0, blue: 20.0/255.0, alpha: 1.0)
