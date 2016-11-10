@@ -119,6 +119,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Products" id="apG-bB-4UH">
                         <barButtonItem key="rightBarButtonItem" title="Clear" id="Dec-5I-qYs">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="clearSearch:" destination="JIp-AI-YDs" id="Tep-xm-cjo"/>
                             </connections>
