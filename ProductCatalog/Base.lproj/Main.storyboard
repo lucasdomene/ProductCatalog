@@ -351,8 +351,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88A-0z-1f0">
-                                <state key="normal" title="Close">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88A-0z-1f0">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="d7D-Vf-KI7"/>
+                                    <constraint firstAttribute="height" constant="35" id="v0s-fl-Ang"/>
+                                </constraints>
+                                <state key="normal" image="cancel">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -394,4 +398,7 @@
             <point key="canvasLocation" x="2335" y="20"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cancel" width="17" height="17"/>
+    </resources>
 </document>
