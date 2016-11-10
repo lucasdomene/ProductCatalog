@@ -137,6 +137,22 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         setImage(atCell: (cell as! ProductCell), forItemAt: indexPath)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let product = productDataSource.product(indexPath: indexPath) {
+            performSegue(withIdentifier: "showProductDetails", sender: product)
+        }
+    }
+    
+    // MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showProductDetails" {
+            if let productDetailsViewController = segue.destination as? ProductDetailsViewController, let product = sender as? Product {
+                productDetailsViewController.product = product
+            }
+        }
+    }
+    
     // MARK: - SearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
