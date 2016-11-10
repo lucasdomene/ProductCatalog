@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A03D398B1DD4DC0A0037015E /* ProductZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03D398A1DD4DC0A0037015E /* ProductZoomViewController.swift */; };
+		A03D398D1DD4EB680037015E /* UIAlertController+CustomAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03D398C1DD4EB680037015E /* UIAlertController+CustomAlerts.swift */; };
 		A04F901C1DD27A2B00C120FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F901B1DD27A2B00C120FA /* AppDelegate.swift */; };
 		A04F901E1DD27A2B00C120FA /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F901D1DD27A2B00C120FA /* ProductsViewController.swift */; };
 		A04F90211DD27A2B00C120FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A04F901F1DD27A2B00C120FA /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		98990DEDCD0D9C4B144EFDD1 /* Pods-ProductCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductCatalog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProductCatalog/Pods-ProductCatalog.debug.xcconfig"; sourceTree = "<group>"; };
 		A03D398A1DD4DC0A0037015E /* ProductZoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductZoomViewController.swift; sourceTree = "<group>"; };
+		A03D398C1DD4EB680037015E /* UIAlertController+CustomAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+CustomAlerts.swift"; sourceTree = "<group>"; };
 		A04F90181DD27A2B00C120FA /* ProductCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A04F901B1DD27A2B00C120FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A04F901D1DD27A2B00C120FA /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				A04F90381DD294D000C120FA /* Product+Mapping.swift */,
+				A03D398C1DD4EB680037015E /* UIAlertController+CustomAlerts.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				A04F901C1DD27A2B00C120FA /* AppDelegate.swift in Sources */,
 				A04F90391DD294D000C120FA /* Product+Mapping.swift in Sources */,
 				A0DBA4471DD2A7D2008ACE85 /* ProductDataSource.swift in Sources */,
+				A03D398D1DD4EB680037015E /* UIAlertController+CustomAlerts.swift in Sources */,
 				A04F903B1DD2958D00C120FA /* ProductStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

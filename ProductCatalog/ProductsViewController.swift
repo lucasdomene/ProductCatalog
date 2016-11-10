@@ -64,8 +64,14 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
                     self.collectionView?.reloadData()
                 }
             case .Failure(let error):
-                print(error)
-                // TODO: Treat Error
+                print("Error fetching products: \(error.localizedDescription)")
+
+                if error == .RequestError {
+                    let alertController = UIAlertController.alert(withRetryClosure: { 
+                        self.fetchProducts()
+                    })
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
             completion?()
             self.stopLoading()
@@ -82,8 +88,13 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
                     self.collectionView?.reloadData()
                 }
             case .Failure(let error):
-                print(error)
-                // TODO: Treat Error
+                print("Error searching products: \(error.localizedDescription)")
+                if error == .RequestError {
+                    let alertController = UIAlertController.alert(withRetryClosure: {
+                        self.searchProducts(searchTerm: self.searchTerm!)
+                    })
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
             completion?()
             self.stopLoading()
