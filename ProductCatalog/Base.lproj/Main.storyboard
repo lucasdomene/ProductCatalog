@@ -117,7 +117,16 @@
                             <outlet property="delegate" destination="JIp-AI-YDs" id="XFj-Zx-yfp"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Products" id="apG-bB-4UH"/>
+                    <navigationItem key="navigationItem" title="Products" id="apG-bB-4UH">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="Dec-5I-qYs">
+                            <connections>
+                                <action selector="clearSearch:" destination="JIp-AI-YDs" id="Tep-xm-cjo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="clearButton" destination="Dec-5I-qYs" id="ZoN-cx-qJh"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dk-Ze-oN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

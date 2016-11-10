@@ -34,6 +34,8 @@ class ProductDataSource: NSObject, UICollectionViewDataSource {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProductHeader", for: indexPath) as! ProductHeaderView
         
         headerView.delegate = collectionView.delegate as! ProductsViewController
+        headerView.searchBar.delegate = collectionView.delegate as! ProductsViewController
+        
         return headerView
     }
     
