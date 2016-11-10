@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class ProductsViewController: UICollectionViewController, OrderingSegmentedControlDelegate, UISearchBarDelegate {
+class ProductsViewController: UICollectionViewController, OrderingSegmentedControlDelegate, UISearchBarDelegate, UICollectionViewDelegateFlowLayout {
 
     // MARK: - @IBOutlets
     
@@ -39,6 +39,8 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ProductsViewController.didRotateDevice), name: .UIDeviceOrientationDidChange, object: nil)
         
         collectionView?.dataSource = productDataSource
         clearButton.isEnabled = isSearchActive
@@ -188,6 +190,22 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         }
     }
     
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            if UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown {
+                let width = (self.view.bounds.size.width - 3 * 5) / 2
+                return CGSize(width: width, height: width * 1.2)
+            } else {
+                let width = (self.view.bounds.size.width - 5 * 5) / 4
+                return CGSize(width: width, height: width * 1.2)
+            }
+        } else {
+            return CGSize(width: 180, height: 190)
+        }
+    }
+    
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -292,6 +310,13 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         if !isRefreshing {
             spinner.stopAnimating()
         }
+    }
+    
+    // MARK: Rotation
+    
+    /// Reload the collectionView for layout adjustments.
+    func didRotateDevice() {
+        self.collectionView?.reloadData()
     }
     
 
