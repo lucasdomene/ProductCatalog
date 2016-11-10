@@ -53,7 +53,7 @@ enum BestBuyAPI: URLRequestConvertible {
     var parameters: [String : Any] {
         switch self {
         case .ListProducts(let page, let sort), .SearchProduct(_, let page, let sort):
-            return ["page" : page, "sort": "salePrice.\(sort.value)", "apiKey": BestBuyAPI.apiKey, "format": "json", "type": "game"]
+            return ["page" : page, "sort": "salePrice.\(sort.value)", "apiKey": BestBuyAPI.apiKey, "format": "json", "type": "game", "pageSize": UIDevice.current.userInterfaceIdiom == .pad ? 25 : 10]
         }
     }
     
