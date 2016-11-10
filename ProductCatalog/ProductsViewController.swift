@@ -14,9 +14,10 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     // MARK: - @IBOutlets
     
     @IBOutlet var clearButton: UIBarButtonItem!
-    @IBOutlet var spinner: UIActivityIndicatorView!
     
     // MARK: - Attributes
+
+    var spinner: UIActivityIndicatorView!
     
     var productStore: ProductStore!
     let productDataSource = ProductDataSource()
@@ -41,6 +42,8 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureSpinner()
         
         NotificationCenter.default.addObserver(self, selector: #selector(ProductsViewController.didRotateDevice), name: .UIDeviceOrientationDidChange, object: nil)
         
@@ -144,7 +147,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     /// Clean search field and search results
     @IBAction func clearSearch(_ sender: UIBarButtonItem) {
-        self.collectionView?.backgroundView = spinner
+        self.collectionView?.backgroundView = nil
         isSearchActive = false
         resetDataSource()
         
@@ -226,7 +229,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     // MARK: - SearchBarDelegate
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.collectionView?.backgroundView = self.spinner
+        self.collectionView?.backgroundView = nil
         if let searchTerm = searchBar.text, !searchTerm.isEmpty {
             isSearchActive = true
             resetDataSource()
@@ -305,6 +308,20 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     // MARK: - Loading
     
+    func configureSpinner() {
+        spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        spinner.color = UIColor(red: 1, green: 222.0/255.0, blue: 20.0/255.0, alpha: 1.0)
+        spinner.hidesWhenStopped = true
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        collectionView?.addSubview(spinner)
+        
+        let xConstraint = NSLayoutConstraint(item: spinner, attribute: .centerX, relatedBy: .equal, toItem: collectionView, attribute: .centerX, multiplier: 1.0, constant: 0)
+        let yConstraint = NSLayoutConstraint(item: spinner, attribute: .centerY, relatedBy: .equal, toItem: collectionView, attribute: .centerY, multiplier: 1.0, constant: 0)
+        
+        xConstraint.isActive = true
+        yConstraint.isActive = true
+    }
+    
     /// Starts the UIActivityIndicator on view
     func startLoading() {
         if !isRefreshing {
@@ -330,7 +347,6 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
             self.collectionView?.reloadData()
         }
     }
-    
 
 }
 
