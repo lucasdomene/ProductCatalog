@@ -15,6 +15,7 @@ class ProductZoomViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var closeButton: UIButton!
     
     // MARK: - @Attributes
     
@@ -26,6 +27,9 @@ class ProductZoomViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         scrollView.delegate = self
+        scrollView.maximumZoomScale = 5
+        
+        view.bringSubview(toFront: closeButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,4 +38,15 @@ class ProductZoomViewController: UIViewController, UIScrollViewDelegate {
         imageView.image = image
     }
     
+    // MARK: - @IBActions
+    
+    @IBAction func closeView(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - UIScrollViewDelegate
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
 }
