@@ -14,6 +14,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     // MARK: - @IBOutlets
     
     @IBOutlet var clearButton: UIBarButtonItem!
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     // MARK: - Attributes
     
@@ -32,6 +33,8 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     var sortType = BestBuyAPI.ListProductsSort.DESC
     
+    var isRefreshing = false
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -48,6 +51,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     // MARK: - Data Fetchers
     
     func fetchProducts(completion: (() -> ())? = nil) {
+        startLoading()
         productStore.fetchProducts(page: currentPage, sort: sortType) { productResult in
             switch productResult {
             case .Success(let products):
@@ -60,10 +64,12 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
                 // TODO: Treat Error
             }
             completion?()
+            self.stopLoading()
         }
     }
     
     func searchProducts(searchTerm: String, completion: (() -> ())? = nil) {
+        startLoading()
         productStore.searchProduct(searchTerm: searchTerm, page: currentPage, sort: sortType) { productResult in
             switch productResult {
             case .Success(let products):
@@ -76,6 +82,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
                 // TODO: Treat Error
             }
             completion?()
+            self.stopLoading()
         }
     }
     
@@ -145,29 +152,30 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     // MARK: - Image Handler
     
     func setImage(atCell cell: ProductCell, forItemAt indexPath: IndexPath) {
-        let product = productDataSource.products[indexPath.row]
-        var imageURL: URL?
-        do {
-            try imageURL = product.thumbnailImage?.asURL()
-            
-            guard imageURL != nil else {
-                setDefaultImage(cell: cell)
-                return
-            }
-            
-            ImageDownloader.default.downloadImage(with: imageURL!) { (image, _, _, _) in
-                if let productRow = self.productDataSource.products.index(of: product) {
-                    let productIndexPath = IndexPath(row: productRow, section: 0)
-                    if let cell = self.collectionView?.cellForItem(at: productIndexPath) as? ProductCell {
-                        OperationQueue.main.addOperation {
-                            cell.productImageView.image = image ?? UIImage(named: "no_image")
-                            cell.stopSpinner()
+        if let product = productDataSource.product(indexPath: indexPath) {
+            var imageURL: URL?
+            do {
+                try imageURL = product.thumbnailImage?.asURL()
+                
+                guard imageURL != nil else {
+                    setDefaultImage(cell: cell)
+                    return
+                }
+                
+                ImageDownloader.default.downloadImage(with: imageURL!) { (image, _, _, _) in
+                    if let productRow = self.productDataSource.products.index(of: product) {
+                        let productIndexPath = IndexPath(row: productRow, section: 0)
+                        if let cell = self.collectionView?.cellForItem(at: productIndexPath) as? ProductCell {
+                            OperationQueue.main.addOperation {
+                                cell.productImageView.image = image ?? UIImage(named: "no_image")
+                                cell.stopSpinner()
+                            }
                         }
                     }
                 }
+            } catch {
+                setDefaultImage(cell: cell)
             }
-        } catch {
-            setDefaultImage(cell: cell)
         }
     }
     
@@ -186,15 +194,32 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     func refreshProducts(sender: UIRefreshControl) {
         resetDataSource()
+        isRefreshing = true
         
         if isSearchActive {
             searchProducts(searchTerm: searchTerm!, completion: { 
                 sender.endRefreshing()
+                self.isRefreshing = false
             })
         } else {
             fetchProducts(completion: { 
                 sender.endRefreshing()
+                self.isRefreshing = false
             })
+        }
+    }
+    
+    // MARK: - Loading
+    
+    func startLoading() {
+        if !isRefreshing {
+            spinner.startAnimating()
+        }
+    }
+    
+    func stopLoading() {
+        if !isRefreshing {
+            spinner.stopAnimating()
         }
     }
     
