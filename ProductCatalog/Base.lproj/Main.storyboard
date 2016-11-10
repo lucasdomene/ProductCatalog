@@ -12,7 +12,7 @@
         <scene sceneID="KR8-Xp-EJs">
             <objects>
                 <collectionViewController id="JIp-AI-YDs" customClass="ProductsViewController" customModule="ProductCatalog" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="3FB-Np-aQA">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3FB-Np-aQA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -230,35 +230,41 @@
                             <constraint firstItem="rm5-tc-Lbc" firstAttribute="top" secondItem="QFo-Jv-CmR" secondAttribute="bottom" constant="8" id="eaV-La-H2c"/>
                             <constraint firstItem="GKC-mY-hJi" firstAttribute="trailing" secondItem="aSw-ee-z8g" secondAttribute="trailingMargin" id="f8f-GL-MS3"/>
                             <constraint firstItem="QFo-Jv-CmR" firstAttribute="top" secondItem="NTM-rL-VVP" secondAttribute="bottom" constant="8" id="gJu-gc-HMB"/>
-                            <constraint firstAttribute="trailing" secondItem="NTM-rL-VVP" secondAttribute="trailing" id="lbA-j4-3ql"/>
+                            <constraint firstAttribute="trailing" secondItem="NTM-rL-VVP" secondAttribute="trailing" constant="8" id="lbA-j4-3ql"/>
                             <constraint firstItem="anZ-CJ-Uqy" firstAttribute="top" secondItem="aME-eb-G2T" secondAttribute="bottom" constant="8" id="qUU-FD-0Od"/>
-                            <constraint firstItem="NTM-rL-VVP" firstAttribute="leading" secondItem="aSw-ee-z8g" secondAttribute="leading" id="wbp-15-dud"/>
+                            <constraint firstItem="NTM-rL-VVP" firstAttribute="leading" secondItem="aSw-ee-z8g" secondAttribute="leading" constant="8" id="wbp-15-dud"/>
                             <constraint firstItem="QFo-Jv-CmR" firstAttribute="leading" secondItem="aSw-ee-z8g" secondAttribute="leadingMargin" id="xIl-7i-Nox"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="1Jj-11-dZV"/>
+                                <exclude reference="52M-Of-qzG"/>
+                                <exclude reference="Mg6-bA-txs"/>
                                 <exclude reference="2vu-kM-Tik"/>
                                 <exclude reference="RNB-u9-9cc"/>
                                 <exclude reference="VD9-c3-c66"/>
                                 <exclude reference="2bZ-Bq-acw"/>
                                 <exclude reference="AkW-hs-xEa"/>
                                 <exclude reference="Q4G-yK-YyV"/>
-                                <exclude reference="Ifo-s6-q98"/>
-                                <exclude reference="bkE-Ul-yFR"/>
-                                <exclude reference="eaV-La-H2c"/>
                                 <exclude reference="37K-1T-iLB"/>
                                 <exclude reference="b3z-xA-hPQ"/>
                                 <exclude reference="cVP-Sc-Pei"/>
                                 <exclude reference="GYq-lw-vuB"/>
                                 <exclude reference="JfP-tK-BPj"/>
                                 <exclude reference="LTU-s1-yZf"/>
-                                <exclude reference="1Jj-11-dZV"/>
-                                <exclude reference="52M-Of-qzG"/>
-                                <exclude reference="Mg6-bA-txs"/>
+                                <exclude reference="Ifo-s6-q98"/>
+                                <exclude reference="bkE-Ul-yFR"/>
+                                <exclude reference="eaV-La-H2c"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <include reference="1Jj-11-dZV"/>
+                                <include reference="52M-Of-qzG"/>
+                                <exclude reference="BYV-MO-0eN"/>
+                                <include reference="Mg6-bA-txs"/>
+                                <exclude reference="Ti9-Pv-LJk"/>
+                                <exclude reference="f8f-GL-MS3"/>
                                 <include reference="2vu-kM-Tik"/>
                                 <exclude reference="NvL-bE-aaS"/>
                                 <include reference="RNB-u9-9cc"/>
@@ -271,12 +277,6 @@
                                 <exclude reference="d1G-uM-RbF"/>
                                 <exclude reference="gJu-gc-HMB"/>
                                 <exclude reference="xIl-7i-Nox"/>
-                                <exclude reference="HpT-3x-NeC"/>
-                                <include reference="Ifo-s6-q98"/>
-                                <exclude reference="SGE-5f-bE3"/>
-                                <exclude reference="XZm-oE-bNL"/>
-                                <include reference="bkE-Ul-yFR"/>
-                                <include reference="eaV-La-H2c"/>
                                 <include reference="37K-1T-iLB"/>
                                 <exclude reference="Fwa-NH-EXA"/>
                                 <exclude reference="OMl-FW-XqY"/>
@@ -289,12 +289,12 @@
                                 <exclude reference="KSv-le-yra"/>
                                 <include reference="LTU-s1-yZf"/>
                                 <exclude reference="qUU-FD-0Od"/>
-                                <include reference="1Jj-11-dZV"/>
-                                <include reference="52M-Of-qzG"/>
-                                <exclude reference="BYV-MO-0eN"/>
-                                <include reference="Mg6-bA-txs"/>
-                                <exclude reference="Ti9-Pv-LJk"/>
-                                <exclude reference="f8f-GL-MS3"/>
+                                <exclude reference="HpT-3x-NeC"/>
+                                <include reference="Ifo-s6-q98"/>
+                                <exclude reference="SGE-5f-bE3"/>
+                                <exclude reference="XZm-oE-bNL"/>
+                                <include reference="bkE-Ul-yFR"/>
+                                <include reference="eaV-La-H2c"/>
                             </mask>
                         </variation>
                     </view>
@@ -315,7 +315,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1xv-IR-E4M" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cbD-53-rSK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cbD-53-rSK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
