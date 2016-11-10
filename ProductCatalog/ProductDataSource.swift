@@ -11,7 +11,11 @@ import UIKit
 
 class ProductDataSource: NSObject, UICollectionViewDataSource {
     
+    // MARK: - Attributes
+    
     var products = [Product]()
+    
+    // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products.count

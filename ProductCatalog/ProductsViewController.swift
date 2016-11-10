@@ -11,19 +11,28 @@ import Kingfisher
 
 class ProductsViewController: UICollectionViewController, OrderingSegmentedControlDelegate, UISearchBarDelegate {
 
+    // MARK: - @IBOutlets
+    
     @IBOutlet var clearButton: UIBarButtonItem!
+    
+    // MARK: - Attributes
     
     var productStore: ProductStore!
     let productDataSource = ProductDataSource()
+    
     var currentPage = 1
     var isLastPage = false
+    
+    var searchTerm: String?
     var isSearchActive = false {
         didSet {
             clearButton.isEnabled = isSearchActive
         }
     }
-    var searchTerm: String?
+    
     var sortType = BestBuyAPI.ListProductsSort.DESC
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +42,8 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         
         self.fetchProducts()
     }
+    
+    // MARK: - Data Fetchers
     
     func fetchProducts(completion: (() -> ())? = nil) {
         productStore.fetchProducts(page: currentPage, sort: sortType) { productResult in
@@ -65,12 +76,16 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         }
     }
     
+    // MARK: Paging
+    
     func loadNextPage() {
         if !isLastPage {
             currentPage += 1
             isSearchActive ? searchProducts(searchTerm: searchTerm!) : fetchProducts()
         }
     }
+    
+    // MARK: Ordering
     
     func orderingChangedTo(sortType: BestBuyAPI.ListProductsSort) {
         if self.sortType == sortType {
@@ -83,11 +98,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         isSearchActive ? searchProducts(searchTerm: searchTerm!) : fetchProducts()
     }
     
-    func resetDataSource() {
-        productDataSource.products = [Product]()
-        currentPage = 1
-        isLastPage = false
-    }
+    // MARK: Searching
     
     @IBAction func clearSearch(_ sender: UIBarButtonItem) {
         isSearchActive = false
@@ -96,6 +107,14 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         (collectionView?.supplementaryView(forElementKind: "UICollectionElementKindSectionHeader", at: IndexPath(row: 0, section: 0)) as? ProductHeaderView)?.searchBar.text = ""
         
         fetchProducts()
+    }
+    
+    // MARK: - Helper Methods
+    
+    func resetDataSource() {
+        productDataSource.products = [Product]()
+        currentPage = 1
+        isLastPage = false
     }
     
     // MARK: - UICollectionViewDelegate

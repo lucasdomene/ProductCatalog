@@ -10,12 +10,12 @@ import Foundation
 import Alamofire
 
 enum BestBuyAPI: URLRequestConvertible {
+    
+    // MARK: - Attributes
+    
     static let baseURLString = "https://api.bestbuy.com/v1"
     static let apiKey = "bd6j9ut3parb7csptftw74b5"
 
-    case ListProducts(page: Int, sort: ListProductsSort)
-    case SearchProduct(searchTerm: String, page: Int, sort: ListProductsSort)
-    
     enum ListProductsSort {
         case DESC;
         case ASC;
@@ -51,6 +51,13 @@ enum BestBuyAPI: URLRequestConvertible {
             return ["page" : page, "sort": "salePrice.\(sort.value)", "apiKey": BestBuyAPI.apiKey, "format": "json", "type": "game"]
         }
     }
+    
+    // MARK: - Routes
+    
+    case ListProducts(page: Int, sort: ListProductsSort)
+    case SearchProduct(searchTerm: String, page: Int, sort: ListProductsSort)
+    
+    // MARK: - URLRequestConvertible
     
     func asURLRequest() throws -> URLRequest {
         let url = try BestBuyAPI.baseURLString.asURL()

@@ -23,6 +23,8 @@ enum ProductError: Error {
 
 class ProductStore {
     
+    // MARK: - Data Fetchers
+    
     func fetchProducts(page: Int, sort: BestBuyAPI.ListProductsSort, completion: @escaping (ProductResult) -> Void) {
         Alamofire.request(BestBuyAPI.ListProducts(page: page, sort: sort)).responseJSON { response in
             completion(self.handleResponse(response: response))
@@ -34,6 +36,8 @@ class ProductStore {
             completion(self.handleResponse(response: response))
         }
     }
+    
+    // MARK: - Helper Methods
     
     func handleResponse(response: DataResponse<Any>) -> ProductResult {
         if let _ = response.result.error {

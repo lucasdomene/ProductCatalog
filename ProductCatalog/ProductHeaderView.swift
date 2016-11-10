@@ -13,11 +13,17 @@ protocol OrderingSegmentedControlDelegate {
 }
 
 class ProductHeaderView: UICollectionReusableView {
-        
+    
+    // MARK: - @IBOutlets
+    
     @IBOutlet var orderingSegmentedControl: UISegmentedControl!
     @IBOutlet var searchBar: UISearchBar!
     
+    // MARK: - Attributes
+    
     var delegate: OrderingSegmentedControlDelegate?
+    
+    // MARK: - @IBActions
     
     @IBAction func orderingChanged(_ sender: UISegmentedControl) {
         delegate?.orderingChangedTo(sortType: sender.selectedSegmentIndex == 0 ? .DESC : .ASC)

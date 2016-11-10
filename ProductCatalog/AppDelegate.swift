@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let productsViewController = rootViewController.topViewController as! ProductsViewController
         productsViewController.productStore = ProductStore()
         
-        // NavigationBar Appearance
+        // MARK: - Appearance
         
         UINavigationBar.appearance().barTintColor = UIColor(red: 1, green: 222.0/255.0, blue: 20.0/255.0, alpha: 1.0)
         

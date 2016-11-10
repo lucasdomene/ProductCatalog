@@ -11,6 +11,8 @@ import ObjectMapper
 
 class Product: Mappable, Equatable {
     
+    // MARK: - Attributes
+    
     var id: Int?
     var name: String?
     var brand: String?
@@ -19,7 +21,11 @@ class Product: Mappable, Equatable {
     var thumbnailImage: String?
     var largeImage: String?
     
+    // MARK: - Mappable
+    
     required init?(map: Map) { }
+    
+    // MARK: - Equatable
     
     public static func ==(lhs: Product, rhs: Product) -> Bool {
         return lhs.id == rhs.id
