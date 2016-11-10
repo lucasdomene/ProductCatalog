@@ -40,6 +40,8 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         collectionView?.dataSource = productDataSource
         clearButton.isEnabled = isSearchActive
         
+        createRefreshControl()
+        
         self.fetchProducts()
     }
     
@@ -73,10 +75,11 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
                 print(error)
                 // TODO: Treat Error
             }
+            completion?()
         }
     }
     
-    // MARK: Paging
+    // MARK: - Paging
     
     func loadNextPage() {
         if !isLastPage {
@@ -85,7 +88,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         }
     }
     
-    // MARK: Ordering
+    // MARK: - Ordering
     
     func orderingChangedTo(sortType: BestBuyAPI.ListProductsSort) {
         if self.sortType == sortType {
@@ -98,7 +101,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
         isSearchActive ? searchProducts(searchTerm: searchTerm!) : fetchProducts()
     }
     
-    // MARK: Searching
+    // MARK: - Searching
     
     @IBAction func clearSearch(_ sender: UIBarButtonItem) {
         isSearchActive = false
@@ -171,6 +174,28 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     func setDefaultImage(cell: ProductCell) {
         cell.productImageView.image = UIImage(named: "no_image")
         cell.stopSpinner()
+    }
+    
+    // MARK: - Pull to Refresh
+    
+    func createRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ProductsViewController.refreshProducts(sender:)), for: .valueChanged)
+        collectionView?.addSubview(refreshControl)
+    }
+    
+    func refreshProducts(sender: UIRefreshControl) {
+        resetDataSource()
+        
+        if isSearchActive {
+            searchProducts(searchTerm: searchTerm!, completion: { 
+                sender.endRefreshing()
+            })
+        } else {
+            fetchProducts(completion: { 
+                sender.endRefreshing()
+            })
+        }
     }
     
 
