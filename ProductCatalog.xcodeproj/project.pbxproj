@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A03D398B1DD4DC0A0037015E /* ProductZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03D398A1DD4DC0A0037015E /* ProductZoomViewController.swift */; };
 		A03D398D1DD4EB680037015E /* UIAlertController+CustomAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03D398C1DD4EB680037015E /* UIAlertController+CustomAlerts.swift */; };
+		A03D399D1DD4EF8A0037015E /* ProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03D399C1DD4EF8A0037015E /* ProductTests.swift */; };
 		A04F901C1DD27A2B00C120FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F901B1DD27A2B00C120FA /* AppDelegate.swift */; };
 		A04F901E1DD27A2B00C120FA /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F901D1DD27A2B00C120FA /* ProductsViewController.swift */; };
 		A04F90211DD27A2B00C120FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A04F901F1DD27A2B00C120FA /* Main.storyboard */; };
@@ -22,13 +23,30 @@
 		A0DBA4471DD2A7D2008ACE85 /* ProductDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBA4461DD2A7D2008ACE85 /* ProductDataSource.swift */; };
 		A0DBA4491DD40657008ACE85 /* ProductHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBA4481DD40657008ACE85 /* ProductHeaderView.swift */; };
 		A0DBA44B1DD4B6F0008ACE85 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBA44A1DD4B6F0008ACE85 /* ProductDetailsViewController.swift */; };
+		A91D68BB4DC67DBE812A8262 /* Pods_ProductCatalogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107B2B56C74197342C3F60D5 /* Pods_ProductCatalogTests.framework */; };
 		E5FD57F4B2BC014F0A521755 /* Pods_ProductCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D0F70A9F572409459526CF /* Pods_ProductCatalog.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A03D39971DD4EF520037015E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A04F90101DD27A2B00C120FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A04F90171DD27A2B00C120FA;
+			remoteInfo = ProductCatalog;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		107B2B56C74197342C3F60D5 /* Pods_ProductCatalogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProductCatalogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C2555148B6D866D9011E781 /* Pods-ProductCatalogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductCatalogTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProductCatalogTests/Pods-ProductCatalogTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8601A9F83CCAAD5EAEB16B3B /* Pods-ProductCatalogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductCatalogTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProductCatalogTests/Pods-ProductCatalogTests.release.xcconfig"; sourceTree = "<group>"; };
 		98990DEDCD0D9C4B144EFDD1 /* Pods-ProductCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductCatalog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProductCatalog/Pods-ProductCatalog.debug.xcconfig"; sourceTree = "<group>"; };
 		A03D398A1DD4DC0A0037015E /* ProductZoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductZoomViewController.swift; sourceTree = "<group>"; };
 		A03D398C1DD4EB680037015E /* UIAlertController+CustomAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+CustomAlerts.swift"; sourceTree = "<group>"; };
+		A03D39921DD4EF520037015E /* ProductCatalogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProductCatalogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A03D39961DD4EF520037015E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A03D399C1DD4EF8A0037015E /* ProductTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTests.swift; sourceTree = "<group>"; };
 		A04F90181DD27A2B00C120FA /* ProductCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A04F901B1DD27A2B00C120FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A04F901D1DD27A2B00C120FA /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +67,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A03D398F1DD4EF520037015E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A91D68BB4DC67DBE812A8262 /* Pods_ProductCatalogTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A04F90151DD27A2B00C120FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -65,6 +91,8 @@
 			children = (
 				98990DEDCD0D9C4B144EFDD1 /* Pods-ProductCatalog.debug.xcconfig */,
 				B1F99D535F2C94616DACED37 /* Pods-ProductCatalog.release.xcconfig */,
+				7C2555148B6D866D9011E781 /* Pods-ProductCatalogTests.debug.xcconfig */,
+				8601A9F83CCAAD5EAEB16B3B /* Pods-ProductCatalogTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -73,14 +101,25 @@
 			isa = PBXGroup;
 			children = (
 				D7D0F70A9F572409459526CF /* Pods_ProductCatalog.framework */,
+				107B2B56C74197342C3F60D5 /* Pods_ProductCatalogTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A03D39931DD4EF520037015E /* ProductCatalogTests */ = {
+			isa = PBXGroup;
+			children = (
+				A03D39961DD4EF520037015E /* Info.plist */,
+				A03D399C1DD4EF8A0037015E /* ProductTests.swift */,
+			);
+			path = ProductCatalogTests;
 			sourceTree = "<group>";
 		};
 		A04F900F1DD27A2B00C120FA = {
 			isa = PBXGroup;
 			children = (
 				A04F901A1DD27A2B00C120FA /* ProductCatalog */,
+				A03D39931DD4EF520037015E /* ProductCatalogTests */,
 				A04F90191DD27A2B00C120FA /* Products */,
 				51F977CB0C5FBBE2549C5455 /* Pods */,
 				9668F929497E37F273888C4A /* Frameworks */,
@@ -91,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A04F90181DD27A2B00C120FA /* ProductCatalog.app */,
+				A03D39921DD4EF520037015E /* ProductCatalogTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,6 +209,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A03D39911DD4EF520037015E /* ProductCatalogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A03D39991DD4EF520037015E /* Build configuration list for PBXNativeTarget "ProductCatalogTests" */;
+			buildPhases = (
+				8848F7BCA5AA5928A852AA0C /* [CP] Check Pods Manifest.lock */,
+				A03D398E1DD4EF520037015E /* Sources */,
+				A03D398F1DD4EF520037015E /* Frameworks */,
+				A03D39901DD4EF520037015E /* Resources */,
+				59E4A1E0724A16233D18F77D /* [CP] Embed Pods Frameworks */,
+				D297AB809FA5D9E68516CF51 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A03D39981DD4EF520037015E /* PBXTargetDependency */,
+			);
+			name = ProductCatalogTests;
+			productName = ProductCatalogTests;
+			productReference = A03D39921DD4EF520037015E /* ProductCatalogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A04F90171DD27A2B00C120FA /* ProductCatalog */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A04F902A1DD27A2B00C120FA /* Build configuration list for PBXNativeTarget "ProductCatalog" */;
@@ -199,6 +260,13 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Domene;
 				TargetAttributes = {
+					A03D39911DD4EF520037015E = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 8VWQC7JGT6;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A04F90171DD27A2B00C120FA;
+					};
 					A04F90171DD27A2B00C120FA = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 8VWQC7JGT6;
@@ -220,11 +288,19 @@
 			projectRoot = "";
 			targets = (
 				A04F90171DD27A2B00C120FA /* ProductCatalog */,
+				A03D39911DD4EF520037015E /* ProductCatalogTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A03D39901DD4EF520037015E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A04F90161DD27A2B00C120FA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,6 +329,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProductCatalog/Pods-ProductCatalog-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		59E4A1E0724A16233D18F77D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProductCatalogTests/Pods-ProductCatalogTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8848F7BCA5AA5928A852AA0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		B0F56516411F0D022648CCB1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,6 +372,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D297AB809FA5D9E68516CF51 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProductCatalogTests/Pods-ProductCatalogTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D911A8426142722BC53936A0 /* [CP] Embed Pods Frameworks */ = {
@@ -286,6 +407,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A03D398E1DD4EF520037015E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A03D399D1DD4EF8A0037015E /* ProductTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A04F90141DD27A2B00C120FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +436,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A03D39981DD4EF520037015E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A04F90171DD27A2B00C120FA /* ProductCatalog */;
+			targetProxy = A03D39971DD4EF520037015E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		A04F901F1DD27A2B00C120FA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -327,6 +464,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A03D399A1DD4EF520037015E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C2555148B6D866D9011E781 /* Pods-ProductCatalogTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 8VWQC7JGT6;
+				INFOPLIST_FILE = ProductCatalogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.domene.ProductCatalogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProductCatalog.app/ProductCatalog";
+			};
+			name = Debug;
+		};
+		A03D399B1DD4EF520037015E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8601A9F83CCAAD5EAEB16B3B /* Pods-ProductCatalogTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 8VWQC7JGT6;
+				INFOPLIST_FILE = ProductCatalogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.domene.ProductCatalogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProductCatalog.app/ProductCatalog";
+			};
+			name = Release;
+		};
 		A04F90281DD27A2B00C120FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -455,6 +625,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A03D39991DD4EF520037015E /* Build configuration list for PBXNativeTarget "ProductCatalogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A03D399A1DD4EF520037015E /* Debug */,
+				A03D399B1DD4EF520037015E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A04F90131DD27A2B00C120FA /* Build configuration list for PBXProject "ProductCatalog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
