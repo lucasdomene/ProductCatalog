@@ -46,36 +46,50 @@ class ProductsViewController: UICollectionViewController {
         }
     }
     
+    // MARK: - UICollectionViewDelegate
+    
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == productDataSource.products.count - 4 {
+        if indexPath.row == productDataSource.products.count - 2 {
             loadNextPage()
         }
         
+        setImage(atCell: (cell as! ProductCell), forItemAt: indexPath)
+    }
+    
+    // MARK: - Image Handler
+    
+    func setImage(atCell cell: ProductCell, forItemAt indexPath: IndexPath) {
         let product = productDataSource.products[indexPath.row]
         var imageURL: URL?
         do {
             try imageURL = product.thumbnailImage?.asURL()
             
             guard imageURL != nil else {
-                (cell as! ProductCell).productImageView.image = UIImage(named: "no_image")
-                (cell as! ProductCell).stopSpinner()
+                setDefaultImage(cell: cell)
                 return
             }
-
-            ImageDownloader.default.downloadImage(with: imageURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
+            
+            ImageDownloader.default.downloadImage(with: imageURL!) { (image, _, _, _) in
                 if let productRow = self.productDataSource.products.index(of: product) {
                     let productIndexPath = IndexPath(row: productRow, section: 0)
                     if let cell = self.collectionView?.cellForItem(at: productIndexPath) as? ProductCell {
-                        cell.productImageView.image = image ?? UIImage(named: "no_image")
-                        cell.stopSpinner()
+                        OperationQueue.main.addOperation {
+                            cell.productImageView.image = image ?? UIImage(named: "no_image")
+                            cell.stopSpinner()
+                        }
                     }
                 }
             }
         } catch {
-            (cell as! ProductCell).productImageView.image = UIImage(named: "no_image")
-            (cell as! ProductCell).stopSpinner()
+            setDefaultImage(cell: cell)
         }
     }
+    
+    func setDefaultImage(cell: ProductCell) {
+        cell.productImageView.image = UIImage(named: "no_image")
+        cell.stopSpinner()
+    }
+    
 
 }
 
