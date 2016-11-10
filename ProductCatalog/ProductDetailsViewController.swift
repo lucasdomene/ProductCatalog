@@ -80,4 +80,22 @@ class ProductDetailsViewController: UIViewController {
         }
     }
     
+    // MARK: - @IBActions
+    
+    @IBAction func zoomPressed(_ sender: AnyObject) {
+        if let image = imageView.image {
+            performSegue(withIdentifier: "showZoomView", sender: image)
+        }
+    }
+    
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showZoomView" {
+            if let destinationViewController = segue.destination as? ProductZoomViewController, let image = sender as? UIImage {
+                destinationViewController.image = image
+            }
+        }
+    }
+    
 }
