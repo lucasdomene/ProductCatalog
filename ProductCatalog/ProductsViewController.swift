@@ -90,6 +90,11 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
             case .Success(let products):
                 OperationQueue.main.addOperation {
                     self.productDataSource.products.append(contentsOf: products)
+                    
+                    if self.productDataSource.products.count == 0 {
+                        self.setEmptyView()
+                    }
+                    
                     self.collectionView?.reloadData()
                 }
             case .Failure(let error):
@@ -135,6 +140,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     
     /// Clean search field and search results
     @IBAction func clearSearch(_ sender: UIBarButtonItem) {
+        self.collectionView?.backgroundView = spinner
         isSearchActive = false
         resetDataSource()
         
@@ -155,6 +161,15 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     /// Remove keyboard from screen
     func dismissKeyboard() {
         (collectionView?.supplementaryView(forElementKind: "UICollectionElementKindSectionHeader", at: IndexPath(row: 0, section: 0)) as? ProductHeaderView)?.searchBar.resignFirstResponder()
+    }
+    
+    /// Set 'empty' message to background
+    func setEmptyView() {
+        let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.height))
+        emptyLabel.text = "No results!"
+        emptyLabel.textAlignment = .center
+        
+        self.collectionView?.backgroundView = emptyLabel
     }
     
     // MARK: - UICollectionViewDelegate
@@ -186,6 +201,7 @@ class ProductsViewController: UICollectionViewController, OrderingSegmentedContr
     // MARK: - SearchBarDelegate
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.collectionView?.backgroundView = self.spinner
         if let searchTerm = searchBar.text, !searchTerm.isEmpty {
             isSearchActive = true
             resetDataSource()
