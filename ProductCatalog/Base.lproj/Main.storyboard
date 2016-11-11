@@ -12,8 +12,8 @@
         <scene sceneID="KR8-Xp-EJs">
             <objects>
                 <collectionViewController id="JIp-AI-YDs" customClass="ProductsViewController" customModule="ProductCatalog" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="3FB-Np-aQA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3FB-Np-aQA">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="aU1-Fw-oxz">
@@ -81,7 +81,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductHeader" id="eyo-ct-B3H" customClass="ProductHeaderView" customModule="ProductCatalog" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                            <rect key="frame" x="0.0" y="0.0" width="667" height="73"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O9B-pb-aiS">
@@ -144,7 +144,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xHu-H8-UEP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aSw-ee-z8g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NTM-rL-VVP">
@@ -202,7 +202,7 @@
                             <constraint firstItem="aME-eb-G2T" firstAttribute="top" secondItem="rm5-tc-Lbc" secondAttribute="bottom" constant="8" id="37K-1T-iLB"/>
                             <constraint firstItem="GKC-mY-hJi" firstAttribute="top" secondItem="anZ-CJ-Uqy" secondAttribute="bottom" constant="8" id="52M-Of-qzG"/>
                             <constraint firstItem="anZ-CJ-Uqy" firstAttribute="trailing" secondItem="aSw-ee-z8g" secondAttribute="trailingMargin" id="8cw-CZ-Cgl"/>
-                            <constraint firstItem="QFo-Jv-CmR" firstAttribute="top" secondItem="C97-sZ-1KR" secondAttribute="bottom" constant="8" id="AkW-hs-xEa"/>
+                            <constraint firstItem="QFo-Jv-CmR" firstAttribute="top" secondItem="C97-sZ-1KR" secondAttribute="bottom" constant="15" id="AkW-hs-xEa"/>
                             <constraint firstItem="GKC-mY-hJi" firstAttribute="leading" secondItem="aSw-ee-z8g" secondAttribute="leadingMargin" id="BYV-MO-0eN"/>
                             <constraint firstItem="aME-eb-G2T" firstAttribute="leading" secondItem="aSw-ee-z8g" secondAttribute="leadingMargin" id="Fwa-NH-EXA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="anZ-CJ-Uqy" secondAttribute="trailing" constant="8" id="GYq-lw-vuB"/>
@@ -212,13 +212,13 @@
                             <constraint firstItem="anZ-CJ-Uqy" firstAttribute="leading" secondItem="aSw-ee-z8g" secondAttribute="leadingMargin" id="KSv-le-yra"/>
                             <constraint firstItem="anZ-CJ-Uqy" firstAttribute="leading" secondItem="NTM-rL-VVP" secondAttribute="trailing" constant="8" id="LTU-s1-yZf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GKC-mY-hJi" secondAttribute="trailing" constant="8" id="Mg6-bA-txs"/>
-                            <constraint firstItem="NTM-rL-VVP" firstAttribute="top" secondItem="C97-sZ-1KR" secondAttribute="bottom" constant="8" id="NvL-bE-aaS"/>
+                            <constraint firstItem="NTM-rL-VVP" firstAttribute="top" secondItem="C97-sZ-1KR" secondAttribute="bottom" constant="15" id="NvL-bE-aaS"/>
                             <constraint firstItem="aME-eb-G2T" firstAttribute="trailing" secondItem="aSw-ee-z8g" secondAttribute="trailingMargin" id="OMl-FW-XqY"/>
                             <constraint firstItem="QFo-Jv-CmR" firstAttribute="leading" secondItem="NTM-rL-VVP" secondAttribute="trailing" constant="8" id="Q4G-yK-YyV"/>
                             <constraint firstItem="NTM-rL-VVP" firstAttribute="width" secondItem="aSw-ee-z8g" secondAttribute="width" multiplier="0.5" id="RNB-u9-9cc"/>
                             <constraint firstItem="rm5-tc-Lbc" firstAttribute="trailing" secondItem="aSw-ee-z8g" secondAttribute="trailingMargin" id="SGE-5f-bE3"/>
                             <constraint firstItem="GKC-mY-hJi" firstAttribute="top" secondItem="anZ-CJ-Uqy" secondAttribute="bottom" constant="8" id="Ti9-Pv-LJk"/>
-                            <constraint firstItem="NTM-rL-VVP" firstAttribute="top" secondItem="C97-sZ-1KR" secondAttribute="bottom" constant="8" id="VD9-c3-c66"/>
+                            <constraint firstItem="NTM-rL-VVP" firstAttribute="top" secondItem="C97-sZ-1KR" secondAttribute="bottom" constant="15" id="VD9-c3-c66"/>
                             <constraint firstItem="rm5-tc-Lbc" firstAttribute="top" secondItem="QFo-Jv-CmR" secondAttribute="bottom" constant="8" id="XZm-oE-bNL"/>
                             <constraint firstItem="aME-eb-G2T" firstAttribute="top" secondItem="rm5-tc-Lbc" secondAttribute="bottom" constant="5" id="Xiw-JZ-KX3"/>
                             <constraint firstItem="aME-eb-G2T" firstAttribute="leading" secondItem="NTM-rL-VVP" secondAttribute="trailing" constant="8" id="b3z-xA-hPQ"/>
@@ -342,7 +342,7 @@
                         <viewControllerLayoutGuide type="bottom" id="PVB-An-G5R"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tVh-9a-Vmq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88A-0z-1f0">
