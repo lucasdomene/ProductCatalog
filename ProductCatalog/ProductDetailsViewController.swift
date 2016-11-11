@@ -45,7 +45,9 @@ class ProductDetailsViewController: UIViewController {
         nameLabel.text = product.name ?? "Unknown"
         brandLabel.text = product.brand ?? "Unknown"
         priceLabel.text = product.price != nil ? "$ \(product.price!)" : "No value"
-        descriptionLabel.text = product.description ?? "No description"
+        if let description = product.description {
+            descriptionLabel.text = description.isEmpty ? "No description" : description
+        }
         
         getImage { image in
             OperationQueue.main.addOperation {
